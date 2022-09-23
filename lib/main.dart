@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:todo_list_app/controllors/todo_controllor.dart';
+import 'package:todo_list_app/dialog_add.dart';
+import 'package:todo_list_app/todo_item.dart';
+import 'package:todo_list_app/todo_list.dart';
 
 void main() {
-  runApp(const MyHomePage());
+  runApp(ChangeNotifierProvider(create: (context) => TodoControllor(),
+    child: MaterialApp(home: MyHomePage(),
+      debugShowCheckedModeBanner: false,
+    )
+  )
+      );
 }
 
 
@@ -15,17 +25,30 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return  Scaffold(
+        appBar: AppBar(title: Text('Todo App',style: TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.bold
+        ),),backgroundColor: Colors.white,),
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.red,
-          onPressed: (){},
+          onPressed: (){
+              showDialog(
+                  context: context,
+                  builder: (context) => AddTodo(),
+                  barrierDismissible: false,
+              );
+          },
           child:  Icon(Icons.add,),
         ),
-      ),
+      body: TodoList(),
 
-    );
+      );
+
+
   }
+
 }
+
+
 
