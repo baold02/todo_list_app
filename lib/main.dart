@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list_app/controllors/todo_controllor.dart';
-import 'package:todo_list_app/dialog_add.dart';
+import 'package:todo_list_app/dialog/dialog_add.dart';
+import 'package:todo_list_app/dialog/dialog_edit.dart';
 import 'package:todo_list_app/todo_item.dart';
 import 'package:todo_list_app/todo_list.dart';
 

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list_app/controllors/todo_controllor.dart';
@@ -14,8 +16,13 @@ class _AddTodoState extends State<AddTodo> {
   final _formKey = GlobalKey<FormState>();
   final titleControllor = TextEditingController();
   final descController = TextEditingController();
-  // String title = '';
-  // String description = '';
+
+  // String RandomId(){
+  //    final r = Random();
+  //    const ac = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890';
+  //    return List.generate(6, (index) => ac[r.nextInt(ac.length)]).join();
+  //}
+
   @override
   Widget build(BuildContext context)  => AlertDialog(
     content: Form(
@@ -57,13 +64,14 @@ class _AddTodoState extends State<AddTodo> {
               child: ElevatedButton(onPressed: (){
                 if(_formKey.currentState?.validate() ?? false){
                     _controller.AddTodo(TodoModel(
+                        id: DateTime.now().toString(),
                         title: titleControllor.text,
                         Descripton: descController.text));
                     print(titleControllor);
                     print(descController);
                     Navigator.pop(context);
                 }
-              },child: Text('ADD'),))
+              },child: Text('Add'),))
         ],
       ),
     ),

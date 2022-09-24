@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:todo_list_app/controllors/todo_controllor.dart';
+import 'package:todo_list_app/dialog/dialog_edit.dart';
 import 'package:todo_list_app/models/todo_model.dart';
 class TodoItem extends StatelessWidget {
   final TodoModel todoModel;
@@ -21,6 +22,16 @@ class TodoItem extends StatelessWidget {
               },
                 icon: Icons.delete,
               ),
+              SlidableAction(
+                  onPressed: (context)  {
+                  showDialog(
+                  context: context,
+                  builder: (context) => EditDialog(todoModel: todoModel) ,
+                  barrierDismissible: false,
+                  );
+                  },
+               icon: Icons.edit,
+              )
 
             ],
           ),
@@ -37,20 +48,25 @@ class TodoItem extends StatelessWidget {
    child:  Row(
      children: [
        Icon(Icons.abc),
+        SizedBox(width: 20,),
         Expanded(
             child:Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                  Text(todoModel.title,
+                  Text(
+                    todoModel.title,
                     style: TextStyle(
-                          color: Theme.of(context).primaryColor,
-                         fontSize: 22
+                          color: Colors.black,
+                         fontSize: 20,
+                         fontWeight: FontWeight.bold
                     ),
                   ),
-                Text(todoModel.Descripton,
+                SizedBox(height: 5,),
+                Text(
+                  todoModel.Descripton,
                   style: TextStyle(
-                      color: Theme.of(context).primaryColor,
-                      fontSize: 22
+                      color: Colors.grey,
+                      fontSize: 13
                   ),
                 )
               ],
@@ -65,4 +81,9 @@ class TodoItem extends StatelessWidget {
        final provider = Provider.of<TodoControllor>(context,listen: false);
        provider.RemoTodo(todoModel);
     }
+
+  
 }
+
+
+

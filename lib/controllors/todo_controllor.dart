@@ -6,13 +6,19 @@ class TodoControllor extends ChangeNotifier{
   final List<TodoModel> _list = [];
 
 
-  List<TodoModel> get list => [..._list];
   List<TodoModel> get todos => _list.where((todo) => todo.isDone == false).toList();
   List<TodoModel> get todosCompleted => _list.where((element) => element.isDone == true).toList();
   void AddTodo(TodoModel model){
   _list.add(model);
   notifyListeners();
  }
+
+void updateTodo(int  index, String title, String description){
+
+        _list[index].title = title;
+        _list[index].Descripton = description;
+        notifyListeners();
+}
 
  void RemoTodo(TodoModel todo){
     _list.remove(todo);
