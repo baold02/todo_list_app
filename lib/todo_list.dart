@@ -12,11 +12,13 @@ class TodoList extends StatelessWidget {
     return todos.isEmpty ?
            Center(
             child: Text(
-              'No todos',
+              'Empty',
               style: TextStyle(fontSize: 20),
             ),
            ):
         ListView.separated(
+            padding: EdgeInsets.all(30),
+            physics: BouncingScrollPhysics(),
             itemBuilder: (context, index) {
                final todo = todos[index];
                 return TodoItem(todoModel:todo);

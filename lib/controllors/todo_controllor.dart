@@ -13,4 +13,9 @@ class TodoControllor extends ChangeNotifier{
   _list.add(model);
   notifyListeners();
  }
+
+ void RemoTodo(TodoModel todo){
+    _list.remove(todo);
+    notifyListeners();
+ }
 }
