@@ -50,27 +50,39 @@ class TodoItem extends StatelessWidget {
        Icon(Icons.abc),
         SizedBox(width: 20,),
         Expanded(
-            child:Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+            child:Container(
+              height: 70,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  width: 3,
+                  color: Colors.red
+
+                ),
+                  borderRadius: BorderRadius.circular(30)
+              ),
+              padding: EdgeInsets.only(left: 15),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                    Text(
+                      todoModel.title,
+                      style: TextStyle(
+                            color: Colors.black,
+                           fontSize: 20,
+                           fontWeight: FontWeight.bold
+                      ),
+                    ),
+                  SizedBox(height: 5,),
                   Text(
-                    todoModel.title,
+                    todoModel.Descripton,
                     style: TextStyle(
-                          color: Colors.black,
-                         fontSize: 20,
-                         fontWeight: FontWeight.bold
+                        color: Colors.grey,
+                        fontSize: 13
                     ),
                   ),
-                SizedBox(height: 5,),
-                Text(
-                  todoModel.Descripton,
-                  style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 13
-                  ),
-                ),
-                Text('Date: ${todoModel.id}')
-              ],
+                  Text('Date: ${todoModel.id}')
+                ],
+              ),
             ) )
      ],
 
