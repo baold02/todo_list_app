@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:todo_list_app/controllors/todo_controllor.dart';
 import 'package:todo_list_app/dialog/dialog_add.dart';
 import 'package:todo_list_app/dialog/dialog_edit.dart';
+import 'package:todo_list_app/models/todo_model.dart';
 import 'package:todo_list_app/todo_item.dart';
 import 'package:todo_list_app/todo_list.dart';
 
@@ -17,6 +18,7 @@ void main() {
 
 enum FilterOptions{A_Z, Newest}
 class MyHomePage extends StatefulWidget {
+
   const MyHomePage({Key? key}) : super(key: key);
 
   @override
@@ -24,6 +26,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  TodoControllor get _controller => context.read<TodoControllor>();
+  TodoModel? todoModel;
   var _showAZ = false;
   var _newest = false;
   @override
@@ -43,7 +47,9 @@ class _MyHomePageState extends State<MyHomePage> {
              },
                onSelected: (value){
                  if(value==0){
-                   print('A_Z');
+                   setState(() {
+                     _controller.xapXep();
+                   });
                  }
                  if(value==1){
                    print('new');

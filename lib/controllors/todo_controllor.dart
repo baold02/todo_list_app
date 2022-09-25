@@ -27,4 +27,8 @@ void updateTodo( TodoModel  todoModel, String title, String des){
     _list.remove(todo);
     notifyListeners();
  }
+
+ void xapXep(){
+  _list.sort((a, b) => a.title.compareTo(b.title));
+ }
 }

@@ -38,7 +38,7 @@ class TodoList extends StatefulWidget {
 }
 
 class _TodoListState extends State<TodoList> {
-  bool check = false;
+  // bool check = false;
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<TodoControllor>(context);
@@ -54,6 +54,9 @@ class _TodoListState extends State<TodoList> {
         padding: EdgeInsets.all(30),
         physics: BouncingScrollPhysics(),
         itemBuilder: (context, index) {
+          // final sortItem =  todos.reversed.toList() ;
+          // todos.sort((a, b) => a.,)
+          // final sortItem = todos..sort((a, b) => a.co,)
           final todo = todos[index];
           return TodoItem(todoModel:todo);
         },
@@ -61,5 +64,8 @@ class _TodoListState extends State<TodoList> {
         itemCount: todos.length);
   }
   }
+
+
+
 
 
