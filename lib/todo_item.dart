@@ -18,7 +18,21 @@ class TodoItem extends StatelessWidget {
             children: [
               SlidableAction(
                 onPressed: (context) => {
-                          DelelteTodo(context, todoModel)
+                        showDialog(context: context,
+                          builder: (context) => AlertDialog(
+                            title: Text('Delete ${todoModel.title}'),
+                            content: Text('You sure want to delete this item?'),
+                            actions: [
+                              TextButton(onPressed: (){
+                                DelelteTodo(context, todoModel);
+                                Navigator.pop(context);
+                              }, child: Text('Ok',style: TextStyle(color: Colors.red),)),
+                              TextButton(onPressed: (){
+                                Navigator.of(context).pop();
+                              }, child: Text('Cancel')),
+
+                            ],
+                          ),)
               },
                 icon: Icons.delete,
               ),
@@ -80,7 +94,7 @@ class TodoItem extends StatelessWidget {
                         fontSize: 13
                     ),
                   ),
-                  Text('Date: ${todoModel.id}')
+                  Text('Create Date: ${todoModel.id}')
                 ],
               ),
             ) )

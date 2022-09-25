@@ -1,5 +1,5 @@
 import 'dart:math';
-
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list_app/controllors/todo_controllor.dart';
@@ -66,7 +66,7 @@ class _AddTodoState extends State<AddTodo> {
               child: ElevatedButton(onPressed: (){
                 if(_formKey.currentState?.validate() ?? false){
                     _controller.AddTodo(TodoModel(
-                        id: DateTime.now().toString(),
+                        id:DateFormat('dd-MM-yyyy').format( DateTime.now()).toString(),
                         title: titleControllor.text,
                         Descripton: descController.text));
                     print(titleControllor);

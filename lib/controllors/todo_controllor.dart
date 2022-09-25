@@ -23,6 +23,10 @@ void updateTodo( TodoModel  todoModel, String title, String des){
  void sortString(List<TodoModel> model) {
  }
 
+// TodoModel? findById(String? id){
+//    return _list.firstWhere((element) => element?.id == id);
+//}
+
  void RemoTodo(TodoModel todo){
     _list.remove(todo);
     notifyListeners();
