@@ -19,9 +19,9 @@ class _AddTodoState extends State<AddTodo> {
 
   // String RandomId(){
   //    final r = Random();
-  //    const ac = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890';
-  //    return List.generate(6, (index) => ac[r.nextInt(ac.length)]).join();
-  //}
+  //    const ac = 'sfogbjoejbortkbfpolaksrkmfkenvjknevjken23oiy458y87454695832964';
+  //    return List.generate(2, (index) => ac[r.nextInt(ac.length)]).join();
+  // }
 
   @override
   Widget build(BuildContext context)  => AlertDialog(
@@ -64,13 +64,14 @@ class _AddTodoState extends State<AddTodo> {
               child: ElevatedButton(onPressed: (){
                 if(_formKey.currentState?.validate() ?? false){
                     _controller.AddTodo(TodoModel(
-                        id: DateTime.now().toString(),
+                        // id: DateTime.now().toString(),
                         title: titleControllor.text,
                         Descripton: descController.text));
                     print(titleControllor);
                     print(descController);
                     Navigator.pop(context);
                 }
+
               },child: Text('Add'),))
         ],
       ),

@@ -13,12 +13,16 @@ class TodoControllor extends ChangeNotifier{
   notifyListeners();
  }
 
-void updateTodo(int  index, String title, String description){
-
-        _list[index].title = title;
-        _list[index].Descripton = description;
+void updateTodo( TodoModel  todoModel, String title, String des){
+        todoModel.title = title;
+        todoModel.Descripton = des;
         notifyListeners();
+
 }
+
+// void sortString(){
+//     _list.sort((a,b)=>a.(b));
+// }
 
  void RemoTodo(TodoModel todo){
     _list.remove(todo);

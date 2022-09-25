@@ -15,7 +15,7 @@ void main() {
       );
 }
 
-
+enum FilterOptions{A_Z, Newest}
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
@@ -24,13 +24,39 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  var _showAZ = false;
+  var _newest = false;
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
         appBar: AppBar(title: Text('Todo App',style: TextStyle(
           color: Colors.black,
           fontWeight: FontWeight.bold
-        ),),backgroundColor: Colors.white,),
+        ),),backgroundColor: Colors.white,
+         actions: [
+             PopupMenuButton(itemBuilder: (context) {
+
+               return [
+                 PopupMenuItem<int>(child: Text('A_Z'),value: 0,),
+                 PopupMenuItem<int>(child: Text('Newset'),value: 1,)
+               ];
+             },
+               onSelected: (value){
+                 if(value==0){
+                   print('A_Z');
+                 }
+                 if(value==1){
+                   print('new');
+                 }
+               },
+                icon: Icon(Icons.more_vert,
+                color: Colors.black),
+             ),
+
+
+
+    ]
+        ),
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.red,
           onPressed: (){
@@ -45,6 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: TodoList(),
 
       );
+
 
 
   }
