@@ -68,7 +68,8 @@ class TodoItem extends StatelessWidget {
                       color: Colors.grey,
                       fontSize: 13
                   ),
-                )
+                ),
+                Text('Date: ${todoModel.id}')
               ],
             ) )
      ],

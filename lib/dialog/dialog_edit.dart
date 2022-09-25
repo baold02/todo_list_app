@@ -54,18 +54,21 @@ class _EditDialogState extends State<EditDialog> {
               ),
             ),
             const SizedBox(height: 8),
+            Container(),
             TextFormField(
               controller: titleControllor,
-              decoration: InputDecoration(hintText:'title'),
+              decoration: InputDecoration(hintText:'title',fillColor: Colors.grey,filled: true),
               validator: (value)  {
                 if(value == null || value.isEmpty){
                   return 'phải nhập trường title';
                 }
               },
             ),
+            SizedBox(height: 10,),
             TextFormField(
               controller: descController,
-              decoration: InputDecoration(hintText:'Descripton'),
+              decoration: InputDecoration(hintText:'Descripton',fillColor: Colors.grey,filled: true),
+              // style: BorderRadius.all(12),
               validator: (value) {
                 if(value == null || value.isEmpty){
                   return ' phải nhập nội dung';
@@ -74,7 +77,7 @@ class _EditDialogState extends State<EditDialog> {
             ),
 
             Container(
-                width: 200,
+                width: 230,
                 padding: EdgeInsets.only(top: 10),
                 child: ElevatedButton(onPressed: (){
                   if(_formKey.currentState?.validate()?? false){
@@ -82,7 +85,10 @@ class _EditDialogState extends State<EditDialog> {
 
                         Navigator.pop(context);
                   }
-                },child: Text('Edit'),))
+                },child: Text('Edit'),
+                    style: ElevatedButton.styleFrom(
+                        primary: Colors.red
+                    )))
           ],
         ),
       ),
