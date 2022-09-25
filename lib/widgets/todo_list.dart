@@ -54,9 +54,6 @@ class _TodoListState extends State<TodoList> {
         padding: EdgeInsets.all(30),
         physics: BouncingScrollPhysics(),
         itemBuilder: (context, index) {
-          // final sortItem =  todos.reversed.toList() ;
-          // todos.sort((a, b) => a.,)
-          // final sortItem = todos..sort((a, b) => a.co,)
           final todo = todos[index];
           return TodoItem(todoModel:todo);
         },

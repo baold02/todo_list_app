@@ -20,8 +20,11 @@ void updateTodo( TodoModel  todoModel, String title, String des){
 
 }
 
- void sortString(List<TodoModel> model) {
- }
+bool checkTodoStatus(TodoModel todoModel){
+    todoModel.isDone = !todoModel.isDone;
+    notifyListeners();
+    return todoModel.isDone;
+}
 
 // TodoModel? findById(String? id){
 //    return _list.firstWhere((element) => element?.id == id);
@@ -34,5 +37,9 @@ void updateTodo( TodoModel  todoModel, String title, String des){
 
  void xapXep(){
   _list.sort((a, b) => a.title.compareTo(b.title));
+ }
+
+ void newset(){
+    _list.sort();
  }
 }

@@ -5,7 +5,7 @@ import 'package:todo_list_app/dialog/dialog_add.dart';
 import 'package:todo_list_app/dialog/dialog_edit.dart';
 import 'package:todo_list_app/models/todo_model.dart';
 import 'package:todo_list_app/widgets/todo_item.dart';
-import 'package:todo_list_app/todo_list.dart';
+import 'package:todo_list_app/widgets/todo_list.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(create: (context) => TodoControllor(),
@@ -52,7 +52,9 @@ class _MyHomePageState extends State<MyHomePage> {
                    });
                  }
                  if(value==1){
-                   print('new');
+                  setState(() {
+                    _controller.newset();
+                  });
                  }
                },
                 icon: Icon(Icons.more_vert,
