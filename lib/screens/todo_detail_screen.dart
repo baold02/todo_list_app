@@ -25,15 +25,42 @@ class _TodoDetailsScreenState extends State<TodoDetailsScreen> {
           children: [
            Row(
              children: [
-               Text("Mo Ta"),
-               Text(loadTodo?.Descripton?? ""),
+               Container(
+                 margin: EdgeInsets.only(right: 10),
+                 child: Text("Công Việc:",
+                 style: TextStyle(
+                   fontWeight: FontWeight.bold,
+                   fontSize: 20
+                 ),),
+               ),
+               Text(loadTodo?.Descripton?? "",
+               style: TextStyle(
+                 fontSize: 20
+               ),),
              ],
            ),
-            Text(loadTodo?.id.toString() ??"" ,
-            style: TextStyle(
-              color: Colors.red
-            ),
+            Container(
+              margin: EdgeInsets.only(top: 10),
+              child: Row(
+                children: [
+                  Container(
+                    margin:  EdgeInsets.only(right: 10),
+                    child: Text('Creat Date:',
+                    style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20
+                    )),
+                  ),
+                  Text(loadTodo?.id.toString() ?? "" ,
+                    style: TextStyle(
+                        color:  Colors.red,
+                        fontSize: 20
+                    ),
+                  )
+                ],
+              ),
             )
+
           ],
         ),
       ),

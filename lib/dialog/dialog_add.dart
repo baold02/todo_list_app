@@ -17,11 +17,11 @@ class _AddTodoState extends State<AddTodo> {
   final titleControllor = TextEditingController();
   final descController = TextEditingController();
 
-  String RandomId(){
-     final r = Random();
-     const ac = 'sfogbjoejbortkbfpolaksrkmfkenvjknevjken23oiy458y87454695832964';
-     return List.generate(2, (index) => ac[r.nextInt(ac.length)]).join();
-  }
+  // String RandomId(){
+  //    final r = Random();
+  //    const ac = 'sfogbjoejbortkbfpolaksrkmfkenvjknevjken23oiy458y87454695832964';
+  //    return List.generate(2, (index) => ac[r.nextInt(ac.length)]).join();
+  // }
 
   @override
   Widget build(BuildContext context)  => AlertDialog(
