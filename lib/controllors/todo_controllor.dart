@@ -26,9 +26,9 @@ bool checkTodoStatus(TodoModel todoModel){
     return todoModel.isDone;
 }
 
-// TodoModel? findById(String? id){
-//    return _list.firstWhere((element) => element?.id == id);
-//}
+TodoModel? findById(String? id){
+   return _list.firstWhere((element) => element?.id == id);
+}
 
  void RemoTodo(TodoModel todo){
     _list.remove(todo);

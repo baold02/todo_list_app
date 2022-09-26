@@ -4,6 +4,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:todo_list_app/controllors/todo_controllor.dart';
 import 'package:todo_list_app/dialog/dialog_edit.dart';
 import 'package:todo_list_app/models/todo_model.dart';
+import 'package:todo_list_app/screens/todo_detail_screen.dart';
 class TodoItem extends StatelessWidget {
   final TodoModel todoModel;
   const TodoItem({Key? key,required this.todoModel}) : super(key: key);
@@ -57,7 +58,7 @@ class TodoItem extends StatelessWidget {
   }
    Widget buildTodo(BuildContext context) => GestureDetector(
      onTap: (){
-
+       Navigator.of(context).pushNamed(TodoDetailsScreen.routeName,arguments: todoModel?.id);
      },
    child:  Row(
      children: [
@@ -65,10 +66,11 @@ class TodoItem extends StatelessWidget {
         SizedBox(width: 20,),
         Expanded(
             child:Container(
+
               height: 70,
               decoration: BoxDecoration(
                 border: Border.all(
-                  width: 3,
+                  width: 1,
                   color: Colors.red
 
                 ),

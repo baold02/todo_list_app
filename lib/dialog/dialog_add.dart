@@ -66,7 +66,7 @@ class _AddTodoState extends State<AddTodo> {
               child: ElevatedButton(onPressed: (){
                 if(_formKey.currentState?.validate() ?? false){
                     _controller.AddTodo(TodoModel(
-                        id:DateFormat('ss').format( DateTime.now()).toString(),
+                        id: DateFormat('ss:mm:kk dd-MM-yyyy').format(DateTime.now()).toString(),
                         title: titleControllor.text,
                         Descripton: descController.text));
                     print(titleControllor);
