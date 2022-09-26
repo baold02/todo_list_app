@@ -58,7 +58,7 @@ class TodoItem extends StatelessWidget {
   }
    Widget buildTodo(BuildContext context) => GestureDetector(
      onTap: (){
-       Navigator.of(context).pushNamed(TodoDetailsScreen.routeName,arguments: todoModel?.id);
+       Navigator.of(context).pushNamed(TodoDetailsScreen.routeName,arguments: todoModel.id);
      },
    child:  Row(
      children: [

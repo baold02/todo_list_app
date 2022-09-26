@@ -4,6 +4,7 @@ import 'package:todo_list_app/controllors/todo_controllor.dart';
 import 'package:todo_list_app/dialog/dialog_add.dart';
 import 'package:todo_list_app/dialog/dialog_edit.dart';
 import 'package:todo_list_app/models/todo_model.dart';
+import 'package:todo_list_app/screens/search_todo_screen.dart';
 import 'package:todo_list_app/screens/todo_detail_screen.dart';
 import 'package:todo_list_app/widgets/todo_item.dart';
 import 'package:todo_list_app/widgets/todo_list.dart';
@@ -13,7 +14,8 @@ void main() {
     child: MaterialApp(home: MyHomePage(),
       debugShowCheckedModeBanner: false,
       routes: {
-          TodoDetailsScreen.routeName:(context) =>TodoDetailsScreen()
+          TodoDetailsScreen.routeName:(context) =>TodoDetailsScreen(),
+          SearchScreen.routeName:(context) => SearchScreen()
       },
     ),
   )
@@ -42,6 +44,9 @@ class _MyHomePageState extends State<MyHomePage> {
           fontWeight: FontWeight.bold
         ),),backgroundColor: Colors.white,
          actions: [
+            IconButton(onPressed: (){
+              Navigator.of(context).pushNamed(SearchScreen.routeName);
+            }, icon: Icon(Icons.search_outlined,color: Colors.black,)),
              PopupMenuButton(itemBuilder: (context) {
 
                return [
@@ -91,6 +96,9 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
 }
+
+
+
 
 
 
