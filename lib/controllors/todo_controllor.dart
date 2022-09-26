@@ -40,6 +40,6 @@ bool checkTodoStatus(TodoModel todoModel){
  }
 
  void newset(){
-    _list.sort();
+    _list.sort((c,d)=>c.id.toString().compareTo(d.id.toString()));
  }
 }

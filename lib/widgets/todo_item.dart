@@ -94,7 +94,7 @@ class TodoItem extends StatelessWidget {
                         fontSize: 13
                     ),
                   ),
-                  Text('Create Date: ${todoModel.id}')
+                  // Text('Create Date: ${todoModel.id}')
                 ],
               ),
             ) ),
