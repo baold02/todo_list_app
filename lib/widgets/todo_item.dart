@@ -61,7 +61,7 @@ class TodoItem extends StatelessWidget {
      },
    child:  Row(
      children: [
-       Icon(Icons.abc),
+       Icon(Icons.note_alt),
         SizedBox(width: 20,),
         Expanded(
             child:Container(
@@ -74,8 +74,9 @@ class TodoItem extends StatelessWidget {
                 ),
                   borderRadius: BorderRadius.circular(30)
               ),
-              padding: EdgeInsets.only(left: 15),
+              padding: EdgeInsets.only(left:20),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                     Text(
