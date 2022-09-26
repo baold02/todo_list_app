@@ -37,9 +37,11 @@ bool checkTodoStatus(TodoModel todoModel){
 
  void xapXep(){
   _list.sort((a, b) => a.title.compareTo(b.title));
+  notifyListeners();
  }
 
  void newset(){
     _list.sort((c,d)=>c.id.toString().compareTo(d.id.toString()));
+    notifyListeners();
  }
 }
