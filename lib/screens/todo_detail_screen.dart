@@ -18,6 +18,7 @@ class _TodoDetailsScreenState extends State<TodoDetailsScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(loadTodo?.title ?? ""),
+        backgroundColor: Colors.red[200],
       ),
       body: Container(
         alignment: Alignment.center,

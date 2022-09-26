@@ -38,57 +38,61 @@ class _MyHomePageState extends State<MyHomePage> {
   var _newest = false;
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-        appBar: AppBar(title: Text('Todo App',style: TextStyle(
-          color: Colors.black,
-          fontWeight: FontWeight.bold
-        ),),backgroundColor: Colors.white,
-         actions: [
-            IconButton(onPressed: (){
-              Navigator.of(context).pushNamed(SearchScreen.routeName);
-            }, icon: Icon(Icons.search_outlined,color: Colors.black,)),
-             PopupMenuButton(itemBuilder: (context) {
+    return  GestureDetector(
+      child: Scaffold(
+          appBar: AppBar(title: Text('Todo App',style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold
+          ),),backgroundColor: Colors.white,
+           actions: [
+              IconButton(onPressed: (){
+                Navigator.of(context).pushNamed(SearchScreen.routeName);
+              }, icon: Icon(Icons.search_outlined,color: Colors.black,)),
+               PopupMenuButton(itemBuilder: (context) {
 
-               return [
-                 PopupMenuItem<int>(child: Text('A_Z'),value: 0,),
-                 PopupMenuItem<int>(child: Text('Newset'),value: 1,)
-               ];
-             },
-               onSelected: (value){
-                 if(value==0){
-                   setState(() {
-                     _controller.xapXep();
-                   });
-                 }
-                 if(value==1){
-                  setState(() {
-                    _controller.newset();
-                  });
-                 }
+                 return [
+                   PopupMenuItem<int>(child: Text('A_Z'),value: 0,),
+                   PopupMenuItem<int>(child: Text('Newset'),value: 1,)
+                 ];
                },
-                icon: Icon(Icons.more_vert,
-                color: Colors.black),
-             ),
+                 onSelected: (value){
+                   if(value==0){
+                     setState(() {
+                       _controller.xapXep();
+                     });
+                   }
+                   if(value==1){
+                    setState(() {
+                      _controller.newset();
+                    });
+                   }
+                 },
+                  icon: Icon(Icons.more_vert,
+                  color: Colors.black),
+               ),
 
 
 
-    ]
+      ]
+          ),
+          floatingActionButton: FloatingActionButton(
+            backgroundColor: Colors.red,
+            onPressed: (){
+                showDialog(
+                    context: context,
+                    builder: (context) => AddTodo(),
+                    barrierDismissible: false,
+                );
+            },
+            child:  Icon(Icons.add,),
+
+          ),
+        body: TodoList(),
+
+
+
         ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.red,
-          onPressed: (){
-              showDialog(
-                  context: context,
-                  builder: (context) => AddTodo(),
-                  barrierDismissible: false,
-              );
-          },
-          child:  Icon(Icons.add,),
-        ),
-      body: TodoList(),
-
-
-      );
+    );
 
 
 

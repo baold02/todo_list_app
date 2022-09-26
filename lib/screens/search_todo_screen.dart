@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:todo_list_app/widgets/todo_item.dart';
 
 import '../controllors/todo_controllor.dart';
+import '../controllors/todo_controllor.dart';
 import '../models/todo_model.dart';
 class SearchScreen extends StatefulWidget {
   static const routeName = '/todo-serch';
@@ -15,7 +16,6 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
 
   final controller = TextEditingController();
-  List<TodoModel> todos1 = TodoControllor().todos;
   TodoControllor get todoController => context.read<TodoControllor>();
   void seacrh(String value){
     setState(() {
@@ -27,7 +27,10 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+
         title: Text('Search'),
+        backgroundColor: Colors.red[200],
+
       ),
       body: Column(
           children: [
